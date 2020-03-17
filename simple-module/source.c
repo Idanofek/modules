@@ -16,7 +16,7 @@ static int device_release(struct inode *, struct file *);
 static ssize_t device_read(struct file *, char *, size_t, loff_t *);
 static ssize_t device_write(struct file *, const char *, size_t, loff_t *);
 
-static int major_number;
+static int major_num;
 static int device_open_count = 0;
 static char msg_buffer[MESSAGE_BUFFER_LENGTH];
 static char* msg_ptr;
@@ -83,7 +83,7 @@ static int __init mod_init(void) {
 }
 
 static void __exit mod_exit(void) {
-	unregister_chrdev(major_num, DEVICE_NUM);
+	unregister_chrdev(major_num, DEVICE_NAME);
 	printk(KERN_INFO "Bb madafaka\n");
 }
 
