@@ -11,7 +11,7 @@ MODULE_VERSION("0.0.1");
 
 #define DEVICE_NAME "devm"
 #define MESSAGE_BUFFER_LENGTH (56)
-#define EXAMPLE_MESSAGE "Spider pig, spider pig, does whatever spider pig does.\n"
+#define EXAMPLE_MSG "Spider pig, spider pig, does whatever spider pig does.\n"
 
 static int device_open(struct inode *, struct file *);
 static int device_release(struct inode *, struct file *);
@@ -33,7 +33,7 @@ static struct file_operations file_ops = {
 static ssize_t device_read(struct file *fs, char *buffer, size_t len, loff_t *offset)
 {
 	int bytes_read = 0;
-	if (NULL == *msg_ptr) {
+	if (0 == *msg_ptr) {
 		msg_ptr = msg_buffer;
 	}
 
