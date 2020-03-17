@@ -3,9 +3,9 @@
 #include <linux/kernel.h>
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Idan Ofek");
+MODULE_AUTHOR("SpiderPig");
 MODULE_DESCRIPTION("Simple Module");
-MODULE_VERSION(“0.0.1”);
+MODULE_VERSION("0.0.1");
 
 static int __init mod_init(void) {
 	printk(KERN_INFO "Sup madafaka\n");
