@@ -35,14 +35,12 @@ static int __init mod_init(void) {
 }
 
 static void __exit mod_exit(void) {
-	struct list_head *pos, *n;
-	struct data *d;
+	struct data *dt, *tmp;
 
-	list_for_each_safe(pos, n, &data_list) {
-		d = list_entry(pos, struct data, list);
-		printk(KERN_INFO "Value: %d\n", d->value);
-		list_del(pos);
-		kfree((const void*)d);
+	list_for_each_entry_safe(dt, tmp, &data_list, list) {
+		printk(KERN_INFO "Value: %d\n", dt->value);
+		list_del(dt->list);
+		kfree((const void*)dt);
 	}
 
 	printk(KERN_INFO "Bb madafaka\n");
