@@ -39,7 +39,7 @@ static void __exit mod_exit(void) {
 
 	list_for_each_entry_safe(dt, tmp, &data_list, list) {
 		printk(KERN_INFO "Value: %d\n", dt->value);
-		list_del(dt->list);
+		list_del(&dt->list);
 		kfree((const void*)dt);
 	}
 
