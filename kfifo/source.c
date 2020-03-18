@@ -29,7 +29,7 @@ static int __init mod_init(void) {
 
 	// Initialize the kfifo
 	int kfifo_alloc_ret = kfifo_alloc(&fifo, FIFO_SIZE, GFP_KERNEL);
-	if (!kfifo_alloc_ret) {
+	if (kfifo_alloc_ret) {
 		printk(KERN_ALERT "Failed to allocate fifo (%d)\n", kfifo_alloc_ret);
 		return -EINVAL;
 	}
