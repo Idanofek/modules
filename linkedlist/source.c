@@ -35,10 +35,10 @@ static int __init mod_init(void) {
 }
 
 static void __exit mod_exit(void) {
-	struct list_head *p;
+	struct list_head *pos, *n;
 	struct data *d;
 
-	list_for_each(p, &data_list) {
+	list_for_each_safe(p, n, &data_list) {
 		d = list_entry(p, struct data, list);
 		printk(KERN_INFO "Value: %d\n", d->value);
 		list_del(p);
