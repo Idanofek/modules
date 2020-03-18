@@ -30,6 +30,8 @@ static int __init mod_init(void) {
 		printk(KERN_INFO "Adding node number %d\n", i);
 		list_add(&new_data->list, &data_list);
 	}
+
+	return 0;
 }
 
 static void __exit mod_exit(void) {
