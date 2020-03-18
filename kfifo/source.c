@@ -18,8 +18,6 @@ static void __print_kfifo_details(struct kfifo *fifo)
 {
 	printk(KERN_INFO "kfifo size: %d\n", kfifo_size(fifo));
 	printk(KERN_INFO "kfifo length: %d\n", kfifo_len(fifo));
-	printk(KERN_INFO "kfifo in: %d\n", fifo->in);
-	printk(KERN_INFO "kfifo out: %d\n", fifo->out);
 	printk(KERN_INFO "kfifo available size: %d\n", kfifo_avail(fifo));
 }
 
@@ -39,7 +37,7 @@ static int __init mod_init(void) {
 	printk(KERN_INFO "kfifo details BEFORE enqueuing...\n");
 	__print_kfifo_details(&fifo);
 
-	int kfifo_in_ret = kfifo_in(kfifo, buffer, buffer_size);
+	int kfifo_in_ret = kfifo_in(&fifo, buffer, buffer_size);
 	if (buffer_size != kfifo_in_ret) {
 		printk(KERN_ALERT "Failed to enqueue to fifo (%d)\n", kfifo_in_ret);
 		return -EINVAL;
@@ -54,7 +52,7 @@ static int __init mod_init(void) {
 static void __exit mod_exit(void) {
 	char* buffer[FIFO_SIZE] = { 0x0 };
 
-	int kfifo_out_ret = kfifo_out(&fifo, buffer, FIFO_SIZE, 0);
+	int kfifo_out_ret = kfifo_out(&fifo, buffer, FIFO_SIZE);
 	if (!kfifo_out_ret) {
 		printk(KERN_ALERT "Failed to dequeue to fifo (%d)\n", kfifo_out_ret);
 		return -EINVAL;
