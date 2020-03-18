@@ -38,10 +38,10 @@ static void __exit mod_exit(void) {
 	struct list_head *pos, *n;
 	struct data *d;
 
-	list_for_each_safe(p, n, &data_list) {
-		d = list_entry(p, struct data, list);
+	list_for_each_safe(pos, n, &data_list) {
+		d = list_entry(pos, struct data, list);
 		printk(KERN_INFO "Value: %d\n", d->value);
-		list_del(p);
+		list_del(pos);
 		kfree((const void*)d);
 	}
 
