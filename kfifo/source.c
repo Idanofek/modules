@@ -63,6 +63,9 @@ static void __exit mod_exit(void) {
 
 	printk(KERN_INFO "Message: %s\n", buffer);
 	printk(KERN_INFO "Bb madafaka\n");
+
+	printk(KERN_INFO "Freeing the kfifo\n");
+	kfifo_free(&fifo);
 }
 
 module_init(mod_init);
