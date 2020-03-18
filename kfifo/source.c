@@ -61,6 +61,7 @@ static void __exit mod_exit(void) {
 	printk(KERN_INFO "kfifo details AFTER dequeuing...\n");
 	__print_kfifo_details(&fifo);
 
+	printk(KERN_INFO "Message: %s\n", buffer);
 	printk(KERN_INFO "Bb madafaka\n");
 }
 
