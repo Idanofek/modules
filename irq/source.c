@@ -6,18 +6,18 @@
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("SpiderPig");
-MODULE_DESCRIPTION("Module for using irq")
+MODULE_DESCRIPTION("Module for using irq");
 MODULE_VERSION("0.0.1");
 
 #define IRQN (1)
 #define DEVICE_NAME "spiderpig"
 
 struct my_struct {
-	long value1,
-	long value2,
+	long value1;
+	long value2;
 };
 
-static struct my_struct *struct = NULL;
+static struct my_struct *my_struct = NULL;
 
 static irqreturn_t intr_handler(int irq, void *dev) 
 {
@@ -25,21 +25,25 @@ static irqreturn_t intr_handler(int irq, void *dev)
 		return IRQ_NONE;
 	}
 
-	struct given_struct = *((struct my_struct*)dev);
-	printk(KERN_INFO "value1: %d\n", given_struct.value1);
-	printk(KERN_INFO "value2: %d\n", given_struct.value2);
+	const struct my_struct *given_struct = (const struct my_struct*)dev;
+	printk(KERN_INFO "value1: %d\n", given_struct->value1);
+	printk(KERN_INFO "value2: %d\n", given_struct->value2);
 
-	return IRQN_HANDLED;
+	return IRQ_HANDLED;
 }
 
 static int __init mod_init(void) 
 {
 	printk(KERN_INFO "Initializing mod\n");
 
-	my_struct = (struct my_struct*)kmalloc(sizeof(struct my_struct));
+	// Free the existing keyboard handler since it cannot co-exist with
+	// our module
+	free_irq(IRQN, NULL);
 
-	if (request_irq(IRQN, inter_handler, IRQF_SHARED, DEVICE_NAME, (void*)my_struct)) {
-		printk(KERN_ERR DEVICE_NAME#": cannot register IRQ :%d\n", IRQN);
+	my_struct = (struct my_struct*)kmalloc(sizeof(struct my_struct), GFP_KERNEL);
+
+	if (request_irq(IRQN, intr_handler, IRQF_SHARED, DEVICE_NAME, (void*)my_struct)) {
+		printk(KERN_ERR "spiderpig: cannot register IRQ :%d\n", IRQN);
 		return -EIO;
 	}
 
