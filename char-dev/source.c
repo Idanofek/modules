@@ -6,7 +6,7 @@
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("SpiderPig");
-MODULE_DESCRIPTION("Simple Module");
+MODULE_DESCRIPTION("Simulates a character device");
 MODULE_VERSION("0.0.1");
 
 #define DEVICE_NAME "devm"
