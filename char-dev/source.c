@@ -7,7 +7,7 @@
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("SpiderPig");
 MODULE_DESCRIPTION("Simulates a character device");
-MODULE_VERSION("0.0.1");
+MODULE_VERSION("0.0.1a");
 
 #define DEVICE_NAME "devm"
 #define MESSAGE_BUFFER_LENGTH (56)
