@@ -97,6 +97,8 @@ static irqreturn_t intr_handler(int irq, void *dev)
 	}
 
 	scancode = inb(0x60);
+	printk(KERN_INFO "received a scancode %d.\n", scancode);
+
 	if (sizeof(scancode) != 
 	    kfifo_in(&keys_fifo, &scancode, sizeof(scancode))) {
 		printk(KERN_ALERT "intr_handle: kfifo_in failed.\n");
