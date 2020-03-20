@@ -133,19 +133,22 @@ static void uninitialize_keys_fifo(struct kfifo* fifo)
 
 static int __init mod_init(void) 
 {
-	printk(KERN_INFO "Initializing module\n");
+	printk(KERN_INFO "initializing module\n");
 
+	printk(KERN_INFO "initializing keys fifo.\n");
 	if (initialize_keys_fifo(&keys_fifo, BUFFER_SIZE)) {
 		printk(KERN_ERR "failed to initialize keys fifo.\n");
 		return -EINVAL;
 	}
 
 	// Use the keys FIFO as the unique cookie of the irq
+	printk(KERN_INFO "registering keyboard irq..\n");
 	if (register_keyboard_irq(DEVICE_NAME, (void*)&keys_fifo)) {
 		printk(KERN_ERR "failed to register keyboard irq.\n");
 		return -EIO;
 	}
 
+	printk(KERN_INFO "registering char device..\n");
 	major_number = register_char_device(DEVICE_NAME, &file_ops);
 	if (major_number < 0 ) {
 		printk(KERN_ERR "mod_init: register_char_device failed (%d).\n",
