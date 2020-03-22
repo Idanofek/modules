@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="robots" content="index,nofollow">
+
+<title>Debug Symbol Packages - Ubuntu Wiki</title>
+<script type="text/javascript" src="/moin_static198/common/js/common.js"></script>
+
+<script type="text/javascript">
+<!--
+var search_hint = "Search";
+//-->
+</script>
+
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/moin_static198/light/css/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="/moin_static198/light/css/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="/moin_static198/light/css/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="/moin_static198/light/css/projection.css">
+
+<!-- css only for MS IE6/IE7 browsers -->
+<!--[if lt IE 8]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/moin_static198/light/css/msie.css">
+<![endif]-->
+
+
+<link rel="alternate" title="Ubuntu Wiki: Debug Symbol Packages" href="/Debug%20Symbol%20Packages?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=Debug+Symbol+Packages&amp;ddiffs=1" type="application/rss+xml">
+
+
+<link rel="Start" href="/Home">
+<link rel="Alternate" title="Wiki Markup" href="/Debug%20Symbol%20Packages?action=raw">
+<link rel="Alternate" media="print" title="Print View" href="/Debug%20Symbol%20Packages?action=print">
+<link rel="Appendix" title="list-symbols-packages-v2.1.sh" href="/Debug%20Symbol%20Packages?action=AttachFile&amp;do=view&amp;target=list-symbols-packages-v2.1.sh">
+<link rel="Appendix" title="list-symbols-packages.sh" href="/Debug%20Symbol%20Packages?action=AttachFile&amp;do=view&amp;target=list-symbols-packages.sh">
+<link rel="Search" href="/FindPage">
+<link rel="Index" href="/TitleIndex">
+<link rel="Glossary" href="/WordIndex">
+<link rel="Help" href="/HelpOnFormatting">
+</head>
+
+<body  lang="en" dir="ltr">
+
+<!-- BEGIN HEADER -->
+<div id="wrapper" class="hfeed">
+<div id="header">
+    <ul id="mothership">
+        <li> <a href="http://www.ubuntu.com/partners">Partners</a> </li>
+        <li> <a href="http://www.ubuntu.com/support">Support</a> </li>
+        <li> <a href="http://www.ubuntu.com/community">Community</a> </li>
+        <li> <a href="http://www.ubuntu.com">Ubuntu.com</a> </li>
+    </ul>
+
+    <div id="orangeHeader">
+        <h1> <a href="/" title="Ubuntu Wiki"><span>Ubuntu Wiki</span></a> </h1>
+            <div id="search-box">
+
+<form id="searchform" method="get" action="/Debug%20Symbol%20Packages">
+<div>
+<input type="hidden" name="action" value="fullsearch">
+<input type="hidden" name="context" value="180">
+<label for="searchinput">Search:</label>
+<input id="searchinput" type="text" name="value" value="" size="20"
+    onfocus="searchFocus(this)" onblur="searchBlur(this)"
+    onkeyup="searchChange(this)" onchange="searchChange(this)" alt="Search">
+<input id="titlesearch" name="titlesearch" type="submit"
+    value="Titles" alt="Search Titles">
+<input id="fullsearch" name="fullsearch" type="submit"
+    value="Text" alt="Search Full Text">
+</div>
+</form>
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+
+            </div>
+    </div>
+
+</div>
+    <div id="wikinav"> 
+<ul class="editbar"><li><span class="disabled">Immutable Page</span></li><li><a class="nbinfo" href="/Debug%20Symbol%20Packages?action=info" rel="nofollow">Info</a></li><li><a class="nbattachments" href="/Debug%20Symbol%20Packages?action=AttachFile" rel="nofollow">Attachments</a></li><li>
+<form class="actionsmenu" method="GET" action="/Debug%20Symbol%20Packages">
+<div>
+    <label>More Actions:</label>
+    <select name="action"
+        onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="raw">Raw Text</option>
+<option value="print">Print View</option>
+<option value="RenderAsDocbook">Render as Docbook</option>
+<option value="refresh">Delete Cache</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Like Pages</option>
+<option value="LocalSiteMap">Local Site Map</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="RenamePage" disabled class="disabled">Rename Page</option>
+<option value="CopyPage">Copy Page</option>
+<option value="DeletePage" disabled class="disabled">Delete Page</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="show" disabled class="disabled">Subscribe User</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="show" disabled class="disabled">Remove Spam</option>
+<option value="show" disabled class="disabled">Revert to this revision</option>
+<option value="PackagePages">Package Pages</option>
+<option value="SyncPages">Sync Pages</option>
+<option value="show" disabled class="disabled">------------------------</option>
+<option value="Load">Load</option>
+<option value="Save">Save</option>
+<option value="SlideShow">SlideShow</option>
+    </select>
+    <input type="submit" value="Do">
+    
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+<ul id="username">
+<li><a href="/Home">Ubuntu Wiki</a></li>
+<li><a href="?action=login">Login</a></li>
+<li><a href="/HelpContents">Help</a></li>
+</ul>
+
+        <hr class="clearBoth" />
+    </div>
+    
+	<div id="main"> 
+		<div id="container">
+			<div id="content">
+		<h2 class="entry-title"> 
+<span><a href="/Debug Symbol Packages">Debug Symbol Packages</a></span>
+</h2>
+	<div class="hentry post">
+               
+
+<div id="page" lang="en" dir="ltr">
+
+<!-- END HEADER --><div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line867"><div dir="ltr" id="Debugging.2FHeader.content" lang="en"><span class="anchor" id="Debugging.2FHeader.top"></span>
+<span class="anchor" id="Debugging.2FHeader.line-1"></span><div><table style="font-size: 0.85em;  border:none;  width=100%;  background-color: #f1f1ed;  font-weight: bold"><tbody><tr>  <td><p class="line862"> <a href="/DebuggingProcedures">Debugging Central</a> </td>
+  <td><p class="line862"> This page is part of the debugging series — pages with debugging details for a variety of Ubuntu packages. </td>
+</tr>
+</tbody></table></div><span class="anchor" id="Debugging.2FHeader.line-2"></span><span class="anchor" id="Debugging.2FHeader.bottom"></span></div> <span class="anchor" id="line-2"></span><div><table style="float:right;  font-size: 0.9em;  width:40%;  background:#F1F1ED;  margin: 0 0 1em 1em;"><tbody><tr>  <td style="padding:0.5em;"><p class="line891"><div class="table-of-contents"><p class="table-of-contents-heading">Contents<ol><li>
+<a href="#Debug_Symbol_Packages">Debug Symbol Packages</a><ol><li>
+<a href="#Getting_-dbgsym.ddeb_packages">Getting -dbgsym.ddeb packages</a></li><li>
+<a href="#Manual_install_of_debug_packages">Manual install of debug packages</a></li><li>
+<a href="#Automatic_Resolution_.2F_Installation_of_necessary_packages">Automatic Resolution / Installation of necessary packages</a></li></ol></li></ol></li></ol></div></td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-3"></span><span class="anchor" id="line-4"></span><p class="line862">This document describes how to set up the debugging symbol packages ( *-dbg.deb and *-.dbgsym.ddeb ). You might need to do this when you are performing tasks like a <a href="/Backtrace">Backtrace</a> or using <a href="/Valgrind">Valgrind</a>. <span class="anchor" id="line-5"></span><span class="anchor" id="line-6"></span><p class="line867">
+<h2 id="Debug_Symbol_Packages">Debug Symbol Packages</h2>
+<span class="anchor" id="line-7"></span><p class="line874">If you want to debug a crash in a project you are developing yourself or from a third-party package, or need the debug symbols for particular libraries very often, it is helpful to install those permanently into your system. <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span><p class="line874">Debugging a program or analyzing stack traces can be very hard because most of the information that can be extracted from them will be in the form of offsets into the binary machine code of the executable. The extra information that allows mapping a machine instruction in a complex module to a function and line number in a corresponding C file is stored in the debug symbol packages. <span class="anchor" id="line-10"></span><span class="anchor" id="line-11"></span><p class="line862">The maintainers of a project usually place the <tt>*-dbg.deb</tt> packages alongside their binary package in the same repository. Installing them will just involve finding the appropriate package name based on the version of that is installed. However, not all maintainers do this and they may not be up to date. During compilation on the ubuntu servers debug packages are also <a class="https" href="https://launchpad.net/ubuntu/+source/pkg-create-dbgsym">created automatically</a> for each binary package. These are named <tt>*-dbgsym.ddeb</tt> and are stored in a separate archive. This is because these packages are used relatively rarely compared to the main repositories and need not be mirrored as much. (<a href="/AptElfDebugSymbols">the spec for this</a>) Either one of these can be used, but for a given package only one can be used at a time. <span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span><p class="line867">
+<h3 id="Getting_-dbgsym.ddeb_packages">Getting -dbgsym.ddeb packages</h3>
+<span class="anchor" id="line-14"></span><p class="line862">In case the <tt>-dbg</tt> package is not available for the version of the package you are using, you might have to use the <tt>-dbgsym</tt> packages. When a large number of dependancies need to have their symbols retrieved it might become necessary to enable the <tt>-dbgsym</tt> repositories anyway. <span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span><ol type="1"><li><p class="line862">Create an <tt class="backtick">/etc/apt/sources.list.d/ddebs.list</tt> by running the following line at a terminal: <span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span><span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span><span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span><span class="anchor" id="line-1-1"></span><div class="highlight bash"><div class="codearea" dir="ltr" lang="en">
+<script type="text/javascript">
+function isnumbered(obj) {
+  return obj.childNodes.length && obj.firstChild.childNodes.length && obj.firstChild.firstChild.className == 'LineNumber';
+}
+function nformat(num,chrs,add) {
+  var nlen = Math.max(0,chrs-(''+num).length), res = '';
+  while (nlen>0) { res += ' '; nlen-- }
+  return res+num+add;
+}
+function addnumber(did, nstart, nstep) {
+  var c = document.getElementById(did), l = c.firstChild, n = 1;
+  if (!isnumbered(c)) {
+    if (typeof nstart == 'undefined') nstart = 1;
+    if (typeof nstep  == 'undefined') nstep = 1;
+    var n = nstart;
+    while (l != null) {
+      if (l.tagName == 'SPAN') {
+        var s = document.createElement('SPAN');
+        var a = document.createElement('A');
+        s.className = 'LineNumber';
+        a.appendChild(document.createTextNode(nformat(n,4,'')));
+        a.href = '#' + did + '_' + n;
+        s.appendChild(a);
+        s.appendChild(document.createTextNode(' '));
+        n += nstep;
+        if (l.childNodes.length) {
+          l.insertBefore(s, l.firstChild);
+        }
+        else {
+          l.appendChild(s);
+        }
+      }
+      l = l.nextSibling;
+    }
+  }
+  return false;
+}
+function remnumber(did) {
+  var c = document.getElementById(did), l = c.firstChild;
+  if (isnumbered(c)) {
+    while (l != null) {
+      if (l.tagName == 'SPAN' && l.firstChild.className == 'LineNumber') l.removeChild(l.firstChild);
+      l = l.nextSibling;
+    }
+  }
+  return false;
+}
+function togglenumber(did, nstart, nstep) {
+  var c = document.getElementById(did);
+  if (isnumbered(c)) {
+    remnumber(did);
+  } else {
+    addnumber(did,nstart,nstep);
+  }
+  return false;
+}
+</script>
+
+<script type="text/javascript">
+document.write('<a href="#" onclick="return togglenumber(\'CA-d73e3ce5ba2aaf7dd9038e92d593041541c427f9\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre dir="ltr" id="CA-d73e3ce5ba2aaf7dd9038e92d593041541c427f9" lang="en"><span class="line"><span class="LineNumber"><a href="#CA-d73e3ce5ba2aaf7dd9038e92d593041541c427f9_1">   1</a> </span><span class="LineAnchor" id="CA-d73e3ce5ba2aaf7dd9038e92d593041541c427f9_1"></span><span class="anchor" id="line-1-2"></span><span class="ResWord">echo</span> <span class="String">"deb http://ddebs.ubuntu.com $(lsb_release -cs) main restricted universe multiverse</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-d73e3ce5ba2aaf7dd9038e92d593041541c427f9_2">   2</a> </span><span class="LineAnchor" id="CA-d73e3ce5ba2aaf7dd9038e92d593041541c427f9_2"></span><span class="anchor" id="line-2-1"></span><span class="String">deb http://ddebs.ubuntu.com $(lsb_release -cs)-updates main restricted universe multiverse</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-d73e3ce5ba2aaf7dd9038e92d593041541c427f9_3">   3</a> </span><span class="LineAnchor" id="CA-d73e3ce5ba2aaf7dd9038e92d593041541c427f9_3"></span><span class="anchor" id="line-3-1"></span><span class="String">deb http://ddebs.ubuntu.com $(lsb_release -cs)-proposed main restricted universe multiverse"</span> | <span class="SPChar">\</span></span>
+<span class="line"><span class="LineNumber"><a href="#CA-d73e3ce5ba2aaf7dd9038e92d593041541c427f9_4">   4</a> </span><span class="LineAnchor" id="CA-d73e3ce5ba2aaf7dd9038e92d593041541c427f9_4"></span><span class="anchor" id="line-4-1"></span><span class="SPChar"></span>sudo tee -a /etc/apt/sources.list.d/ddebs.list</span>
+</pre></div></div><span class="anchor" id="line-23"></span><span class="anchor" id="line-24"></span>The last three repositories may not be needed on a testing (alpha, beta daily build etc) releases. <span class="anchor" id="line-25"></span><span class="anchor" id="line-26"></span><p class="line862">You can also add these repositories in your software sources from the Ubuntu software center or from synaptic. (see <a class="https" href="https://help.ubuntu.com/community/Repositories/Ubuntu">this article</a> especially the section on <a class="https" href="https://help.ubuntu.com/community/Repositories/Ubuntu#Adding_Other_Repositories">adding other repositories</a>)  <span class="anchor" id="line-27"></span>You will need to add lines like <span class="anchor" id="line-28"></span><span class="anchor" id="line-29"></span><pre><span class="anchor" id="line-1"></span>deb http://ddebs.ubuntu.com trusty main restricted universe multiverse</pre><span class="anchor" id="line-30"></span><span class="anchor" id="line-31"></span></li><li class="gap"><p class="line862">Import the debug symbol archive <a class="https" href="https://help.ubuntu.com/community/Repositories/Ubuntu#Authentication_Tab">signing key</a> from the Ubuntu server. On Ubuntu 18.04 LTS and newer: <span class="anchor" id="line-32"></span><span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span><span class="anchor" id="line-1-3"></span><div class="highlight bash"><div class="codearea" dir="ltr" lang="en">
+<script type="text/javascript">
+document.write('<a href="#" onclick="return togglenumber(\'CA-f3c908bb130d982656840e1b06d2cdb6c47ea0f1\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre dir="ltr" id="CA-f3c908bb130d982656840e1b06d2cdb6c47ea0f1" lang="en"><span class="line"><span class="LineNumber"><a href="#CA-f3c908bb130d982656840e1b06d2cdb6c47ea0f1_1">   1</a> </span><span class="LineAnchor" id="CA-f3c908bb130d982656840e1b06d2cdb6c47ea0f1_1"></span><span class="anchor" id="line-1-4"></span>sudo apt install ubuntu-dbgsym-keyring</span>
+</pre></div></div><span class="anchor" id="line-35"></span><span class="anchor" id="line-36"></span><ul><li style="list-style-type:none">On earlier releases of Ubuntu use: <span class="anchor" id="line-37"></span></li></ul><span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span><span class="anchor" id="line-1-5"></span><div class="highlight bash"><div class="codearea" dir="ltr" lang="en">
+<script type="text/javascript">
+document.write('<a href="#" onclick="return togglenumber(\'CA-d8a21933212302420451bb1fb24e0bd3eb27bc18\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre dir="ltr" id="CA-d8a21933212302420451bb1fb24e0bd3eb27bc18" lang="en"><span class="line"><span class="LineNumber"><a href="#CA-d8a21933212302420451bb1fb24e0bd3eb27bc18_1">   1</a> </span><span class="LineAnchor" id="CA-d8a21933212302420451bb1fb24e0bd3eb27bc18_1"></span><span class="anchor" id="line-1-6"></span>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F2EDC64DC5AEE1F6B9C621F0C8CAB6595FDFF622</span>
+</pre></div></div><span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span></li><li class="gap"><p class="line862">Then run the following to update your package list or click the <em>Reload</em> button if you used the Synaptic Package Manager. <span class="anchor" id="line-42"></span><span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span><span class="anchor" id="line-1-7"></span><div class="highlight bash"><div class="codearea" dir="ltr" lang="en">
+<script type="text/javascript">
+document.write('<a href="#" onclick="return togglenumber(\'CA-22df403a74961a7d638665e280a722d327a412cf\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre dir="ltr" id="CA-22df403a74961a7d638665e280a722d327a412cf" lang="en"><span class="line"><span class="LineNumber"><a href="#CA-22df403a74961a7d638665e280a722d327a412cf_1">   1</a> </span><span class="LineAnchor" id="CA-22df403a74961a7d638665e280a722d327a412cf_1"></span><span class="anchor" id="line-1-8"></span>sudo apt-get update</span>
+</pre></div></div><span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span></li></ol><p class="line867">
+<h3 id="Manual_install_of_debug_packages">Manual install of debug packages</h3>
+<span class="anchor" id="line-47"></span><p class="line862">If the package in question is the <em>xserver-xorg-core</em> package you can try <span class="anchor" id="line-48"></span><span class="anchor" id="line-49"></span><span class="anchor" id="line-50"></span><pre><span class="anchor" id="line-1-1"></span>sudo apt-get install xserver-xorg-core-dbg</pre><span class="anchor" id="line-51"></span><span class="anchor" id="line-52"></span><p class="line874">or <span class="anchor" id="line-53"></span><span class="anchor" id="line-54"></span><span class="anchor" id="line-55"></span><pre><span class="anchor" id="line-1-2"></span>sudo apt-get install xserver-xorg-core-dbgsym</pre><span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span><p class="line867">
+<h3 id="Automatic_Resolution_.2F_Installation_of_necessary_packages">Automatic Resolution / Installation of necessary packages</h3>
+<span class="anchor" id="line-58"></span><p class="line874">The above procedure will install the debug symbol package for a single package only. Chances are that the binary uses shared libraries in other packages and debug symbols for them might be required in order to obtain a readable stack trace or perform other debugging tasks.  <span class="anchor" id="line-59"></span><span class="anchor" id="line-60"></span><p class="line874">You can use the 'find-dbgsym-packages' command from the 'debian-goodies' package to find debug symbols for a core file, running PID or binary path. <span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span><p class="line874">For a binary path it only finds debug symbols for the actual binary itself, and not any dynamically linked library dependencies or other libraries loaded at runtime. For that functionality to work you need to use either a core file or running PID which is the preferred method. <span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span><p class="line874">This tool will find both "-dbg" and "-dbgsym" style packages. However it only finds debug symbols for apt repositories that are currently enabled and updated, so you need to ensure that you enable at least the "ddebs.ubuntu.com" archive as described elsewhere on this page and for a Launchpad PPA or the Ubuntu Cloud Archive you need to add another source line with the component changed from "main" to "main/debug". <span class="anchor" id="line-65"></span><span class="anchor" id="line-66"></span><p class="line867"><span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span><span class="anchor" id="line-69"></span><pre><span class="anchor" id="line-1-3"></span>apt install debian-goodies
+<span class="anchor" id="line-2"></span>find-dbgsym-packages [core_path|running_pid|binary_path]</pre><span class="anchor" id="line-70"></span><span class="anchor" id="line-71"></span><p class="line874">If the above tool is not working for you, there is an older shell script that attempts to do this by parsing the gdb output instead however often does not work correctly. <span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span><p class="line862">You can download the following <a class="attachment" href="/Debug%20Symbol%20Packages?action=AttachFile&amp;do=view&amp;target=list-symbols-packages-v2.1.sh" title="shell script (list-symbols-packages-v2.1.sh)">shell script (list-symbols-packages-v2.1.sh)</a> to resolve all the dependencies. Attaching a debugger to an already running process may require elevated privileges even if you own the process. The following invocation will print out the list of files to install. <span class="anchor" id="line-74"></span><span class="anchor" id="line-75"></span><span class="anchor" id="line-76"></span><pre><span class="anchor" id="line-1-4"></span>sudo bash ./list-symbols-packages-v2.sh -p $(pidof yelp)</pre><p class="line862"> To automatically install them apt can be called with the input from the script. The script is invoked with <tt>-t</tt> for a terse output without the descriptions of the packages and error messages are suppressed:<span class="anchor" id="line-77"></span><pre><span class="anchor" id="line-1-5"></span>sudo bash ./list-symbols-packages-v2.sh -t -p $(pidof yelp) 2&gt;/dev/null | xargs -d $'\n' sudo apt-get install </pre><p class="line862"> <img alt="Warning /!\" height="16" src="/moin_static198/light/img/icon_eek.png" title="Warning /!\" width="16" /> Version 2 of this script makes it compatible with the newer GDB (which no longer loads all libraries at startup by default). -v2 currently only works if you run it against a currently-executing binary (i.e., with '-p $(pidof &lt;whatever&gt;'). The <a class="attachment" href="/Debug%20Symbol%20Packages?action=AttachFile&amp;do=view&amp;target=list-symbols-packages.sh" title="older version">older version</a> of the script is also available.<span class="anchor" id="line-78"></span><span class="anchor" id="line-79"></span><p class="line867"><hr /><p class="line874"> <span class="anchor" id="line-80"></span><a href="/CategoryBugSquad">CategoryBugSquad</a> <a href="/CategoryDebugging">CategoryDebugging</a> <span class="anchor" id="line-81"></span><span class="anchor" id="bottom"></span></div> <!-- BEGIN FOOTER -->
+<div id="pagebottom"></div>
+</div>
+
+
+        <div class="entry-utility"> 
+            <span class="cat-links">
+<p id="pageinfo" class="info" lang="en" dir="ltr">Debug Symbol Packages  (last edited 2019-12-09 09:09:07 by <span title="lathiat @ localhost[127.0.0.1]"><a class="interwiki" href="https://launchpad.net/~lathiat" title="lathiat @ localhost[127.0.0.1]">lathiat</a></span>)</p>
+
+</span> 
+        </div> 
+    </div><!-- .post --> 
+ 
+            </div><!-- #content --> 
+        </div><!-- #container --> 
+        <div class="clearBoth"></div> 
+    </div><!-- #main --> 
+</div><!-- #wrapper .hfeed --> 
+    
+<div id="footer"> 
+    <div id="siteinfo">        
+        <p> The material on this wiki is available under a free license, see 
+	<a href="https://help.ubuntu.com/community/License">Copyright / License</a> for details.
+        </p> 
+    </div><!-- #siteinfo --> 
+</div><!-- #footer  --> 
+<script> (function(i,s,o,g,r,a,m){ i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-1018242-7', 'auto'); ga('send', 'pageview'); </script></body>
+</html>
+
