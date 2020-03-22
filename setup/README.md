@@ -23,3 +23,7 @@ sudo apt-get install -y pkg-create-dbgsym
 
 sudo apt-get install gdb
 ```
+
+## GDB Init Script
+
+https://github.com/cyrus-and/gdb-dashboard
