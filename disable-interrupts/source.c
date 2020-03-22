@@ -7,19 +7,22 @@
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("SpiderPig");
-MODULE_DESCRIPTION("Disables interrupts on cpu");
+MODULE_DESCRIPTION("Disables interrupts on cpu.");
 MODULE_VERSION("0.0.1");
 
 static int __init mod_init(void) 
 {
 	printk(KERN_INFO "initializing module\n");
 
-	printk(KERN_INFO "Disabling cpu interrupts. WAHAHAH!\n");
+	printk(KERN_INFO "Disabling interrupts in cpu. WAHAHAH!\n");
+
 
 	unsigned long flags;
 	local_irq_save(flags);
-	msleep(3000);
+	msleep(6000);
 	local_irq_restore(flags);
+
+	printk(KERN_INFO "Restored interrupts on cpu.\n");
 
 	return 0;
 }
