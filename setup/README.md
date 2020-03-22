@@ -1,4 +1,6 @@
-## ___Debug Symbols Installation___
+## Debug Symbols Installation
+
+In addition to the documents in the repo, use:
 
 ```
 #!/bin/bash
