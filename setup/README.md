@@ -1,4 +1,9 @@
-## Debug Symbols Installation
+## Debugging the Kernel
+
+### Debugging Symbol Installation
+
+https://xakcop.com/post/vmw-kernel-debugging/
+https://wiki.ubuntu.com/Debug%20Symbol%20Packages#
 
 In addition to the documents in the repo, use:
 
