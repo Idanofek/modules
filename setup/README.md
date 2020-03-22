@@ -29,6 +29,19 @@ sudo apt-get install -y pkg-create-dbgsym
 sudo apt-get install gdb
 ```
 
+### Configuring VM to Open a Remote Debugging Port
+
+Need to add the following lines to the VM's `.vmx` file:
+```
+debugStub.listen.guest32 = "TRUE"
+debugStub.listen.guest32.remote = "TRUE"
+debugStub.listen.guest64 = "TRUE"
+debugStub.listen.guest64.remote = "TRUE"
+```
+
+Default 32bit port is `8832`, 64bit port is `8864`.
+
+
 ## GDB Init Script
 
 https://github.com/cyrus-and/gdb-dashboard
