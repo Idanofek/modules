@@ -1,6 +1,7 @@
-___Debug Symbols Installation___
+## ___Debug Symbols Installation___
 
-`#!/bin/bash
+```
+#!/bin/bash
 #
 # https://askubuntu.com/questions/197016/how-to-install-a-package-that-contains-ubuntu-kernel-debug-symbols
 # https://wiki.ubuntu.com/DebuggingProgramCrash#Debug_Symbol_Packages
@@ -18,4 +19,5 @@ sudo apt-get install -y linux-image-`uname -r`-dbgsym
 #   for any subsequent Kernel builds / installs
 sudo apt-get install -y pkg-create-dbgsym
 
-sudo apt-get install gdb`
+sudo apt-get install gdb
+```
