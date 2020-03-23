@@ -12,12 +12,13 @@ In order the debug the kernel, you need the following:
 
 In order to run QEMU, run the following command:
 ```
-qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -initrd /boot/initrd.img-4.10.0-38-generic -hda ~/Downloads/debian_squeeze_amd64_desktop.qcow2 -nographic --append "console=ttyS0 root=/dev/sda1 nokaslr" -m 512 -s -S
+mkinitramfs -o initrd
+qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -initrd initrd -hda ~/Downloads/debian_squeeze_amd64_desktop.qcow2 -nographic --append "console=ttyS0 root=/dev/sda1 nokaslr" -m 512 -s -S
 ```
 
 Where:
 * `kernel` flag specifies the location of the compiled kernel (bzImage file).
-* `initrd` points to the initrd file of the desired kernel.
+* `initrd` points to an initramfs file, created be `mkinitramfs` command.
 * `hda` points to a `qcow2` file, representing the file system 
   * (can be downloaded from https://people.debian.org/~aurel32/qemu/amd64/).
 * `nographic` and `console=ttyS0` used tooutput the stdout to the terminal.
