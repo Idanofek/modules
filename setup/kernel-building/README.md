@@ -9,16 +9,16 @@ When talking about Linux, Buildroot provides two main features:
 1. Download buildroot source files from https://buildroot.org/download.html.
 2. `cd` to buildroot directory, and enter the configuration menu by running `make menuconfig`.
 3. The menu allows you to configure a variety of options, where:
-  * `__Target Options__` contains definitions about the target's architecture.
-  * `__Build Options__` contains definitions about Buildroot's build (number of cores, paths, etc.).
-  * `__Toolchain__` contains definitions about the toolchain with which the kernel will be built (gcc's version, C++ support, etc.).
-  * `__System Configuration__` contains some system-related options (hostname, user's password, etc.).
-  * `__Kernel__` contains definitions about the desired kernel (version, patches, configuration file, etc.).
-  * `__Target Packages__` allows you the choose which packages will be installed on the image file-system.
-  * `__Filesystem Images___` allows you to configure the format and size of the file-system that Buildroot generates.
-  * `__Bootloades__` allows you choose which bootloader to use.
-  * `__Host Utilities__` allows you to choose which utilities will be installed on the host machine.
-  * `__Legacy Config Options__` contain some of Buildroot's legacy options (usually not-interesting).
+  * __`Target Options`__ contains definitions about the target's architecture.
+  * __`Build Options`__ contains definitions about Buildroot's build (number of cores, paths, etc.).
+  * __`Toolchain`__ contains definitions about the toolchain with which the kernel will be built (gcc's version, C++ support, etc.).
+  * __`System Configuration`__ contains some system-related options (hostname, user's password, etc.).
+  * __`Kernel`__ contains definitions about the desired kernel (version, patches, configuration file, etc.).
+  * __`Target Packages`__ allows you the choose which packages will be installed on the image file-system.
+  * __`Filesystem Images`__ allows you to configure the format and size of the file-system that Buildroot generates.
+  * __`Bootloades`__ allows you choose which bootloader to use.
+  * __`Host Utilities`__ allows you to choose which utilities will be installed on the host machine.
+  * __`Legacy Config Options`__ contain some of Buildroot's legacy options (usually not-interesting).
 4. Once you finish configuring Buildroot's, run `make`.
 5. Both the Linux image and the file-system file will be under `<BUILDROOT_DIR>/output/images`.
 
