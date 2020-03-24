@@ -26,7 +26,7 @@ When talking about Linux, Buildroot provides two main features:
 
 Buildroot is pretty smart when it comes to rebuilding the entire tree.
 Usually, rebuild is not needed when adding new packages / changing configuration related to Buildroot's itself.
-However, to save a pitfall - always rread the documentation found in https://buildroot.org/downloads/manual/manual.html for further information.
+However, to save a pitfall - always read the documentation found in https://buildroot.org/downloads/manual/manual.html for further information.
 
 If (after reading the manual) a rebuild is still needed, it can be achieved by running `make clean all`.
 
