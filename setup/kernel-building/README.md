@@ -1,5 +1,7 @@
 ## Building Your Own Kernel Using Buildroot
-
+  
+</br>
+  
 When talking about Linux, Buildroot provides two main features:
   * Building a custom kernel.
   * Creating a file-system file, contains all the needed dependencies and tools.
@@ -24,8 +26,6 @@ When talking about Linux, Buildroot provides two main features:
 4. Once you finish configuring Buildroot's, run `make`.
 5. Both the Linux image and the file-system file will be under `<BUILDROOT_DIR>/output/images`.
 
-</br>
-  
 ### Rebuilding 
 
 Buildroot is pretty smart when it comes to rebuilding the entire tree.
@@ -34,15 +34,11 @@ However, to save a pitfall - always read the documentation found in https://buil
 
 If (after reading the manual) a rebuild is still needed, it can be achieved by running `make clean all`.
   
-</br>
-  
 ### Building Linux 4.19 x64 Kernel
 
 The configuration file found in this repo is used for building a Linux kernel v4.19 x64.
 You can use it, but it is recommended to go over it and validate that the configuration file suits your needs.
-  
-</br>
-  
+
 ### Common Pitfalls
 
 #### GCC's fails with error "canno't compute suffix for files"
