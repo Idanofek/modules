@@ -4,6 +4,18 @@ filetype plugin indent on
 
 set number
 
+set autoindent
+set smartindent
+
+" --- Enhanced keyboard mapping
+" in normal mode F2 will save the file
+nmap <F2> :w<CR>
+" in insert mode F2 will exit insert, save, enters insert again
+imap <F2> <ESC>:w<CR>i
+" switch between header/source with F4
+map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+map <C-b> <C-]>
+
 " --- For a better kernel navigation --- "
 set background=dark
 set t_Co=256
