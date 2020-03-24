@@ -7,6 +7,8 @@ Basically, I've tried two ways of debugging the Linux's kernel:
 1. By installing a VM (VMware) from scratch using an ubuntu distribution.
 2. By using Buildroot and QEMU, compiling my own kernel (and fs) and debugging using QEMU.
 
+</br>
+
 ## Way 1 - Using VMware
 
 In order to debug the kernel using VMware, I did the following:
@@ -25,6 +27,8 @@ In order to debug the kernel using VMware, I did the following:
 ### What I didn't do?
 1. Figured how to make `vmlinux-gdb.py` (the kernel script that provides all the lx* commands) to work.
 2. Figured how to debug the kernel from the very-beginning (`start_kernel` function).
+
+</br>
 
 ## Way 2 - Using QEMU
 
