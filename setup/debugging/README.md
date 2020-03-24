@@ -64,7 +64,9 @@ Once QEMU is running, we need to run gdb:
 gdb -ex "add-auto-load-safe-path $(pwd)" -ex "file vmlinux" -ex 'set arch i386:x86-64:intel' -ex 'target remote localhost:1234' -ex 'break start_kernel' -ex 'continue' -ex 'disconnect' -ex 'set arch i386:x86-64' -ex 'target remote localhost:1234'
 ```
 
-___Note:___ the reason why we reconnect GDB right after the first breakpoint is reached, is due to QEMU's bug ("Reply 'g' packet is too long").
+___Notes:___
+* __`vmlinux`__ is the Kernel's debug symbols file.
+* The reason why we reconnect GDB right after the first breakpoint is reached, is due to QEMU's bug ("Reply 'g' packet is too long").
 
 ### What I didn't do?
 1. Managed to connect to QEMU with ssh from the host (should be easy, although didn't work).
