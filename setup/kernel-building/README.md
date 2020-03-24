@@ -1,12 +1,8 @@
 ## Building Your Own Kernel Using Buildroot
   
-</br>
-  
 When talking about Linux, Buildroot provides two main features:
   * Building a custom kernel.
   * Creating a file-system file, contains all the needed dependencies and tools.
-  
-</br>
   
 ### Running Buildroot
 
