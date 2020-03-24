@@ -24,18 +24,18 @@ In order to debug the kernel using VMware, I did the following:
 4. Entering the VM and compiling the desired kernel module.
 5. Connecting with `gdb` to the VM by running `gdb -ex target remote :8832`.
 
-</br>
 ### What I didn't do?
 1. Figured how to make `vmlinux-gdb.py` (the kernel script that provides all the lx* commands) to work.
 2. Figured how to debug the kernel from the very-beginning (`start_kernel` function).
 
 </br>
+
 ## Way 2 - Using QEMU
-</br>
+
 ### Prerequisites 
 
 Build a kernel using Buildroot (guide can be found in the `kernel-debugging` directory).
-</br>
+
 ### Running QEMU
 
 The interesting Buildroot's output is the two following file:
@@ -56,7 +56,7 @@ __Where__:
 * `m 512` indicates the block size of the disk (?).
 * `s` indicates to listen on a gdb server on port 1234
 * `S` halts the kernel startup until resumed from inside gdb (allows to start debugging from the very-beginning).  
-</br>
+
 ### Running GDB
 
 Once QEMU is running, we need to run gdb:
@@ -65,7 +65,7 @@ gdb -ex "add-auto-load-safe-path $(pwd)" -ex "file vmlinux" -ex 'set arch i386:x
 ```
 
 ___Note:___ the reason why we reconnect GDB right after the first breakpoint is reached, is due to QEMU's bug ("Reply 'g' packet is too long").
-</br>
+
 ### What I didn't do?
 1. Managed to connect to QEMU with ssh from the host (should be easy, although didn't work).
 2. Managed to build a kernel module (gcc's binary was missing, need to figure how to configure Buildroot to include it).
