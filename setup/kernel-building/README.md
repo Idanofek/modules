@@ -1,5 +1,5 @@
 ## Building Your Own Kernel Using Buildroot
-
+  
 When talking about Linux, Buildroot provides two main features:
   * Building a custom kernel.
   * Creating a file-system file, contains all the needed dependencies and tools.
@@ -29,7 +29,7 @@ Usually, rebuild is not needed when adding new packages / changing configuration
 However, to save a pitfall - always read the documentation found in https://buildroot.org/downloads/manual/manual.html for further information.
 
 If (after reading the manual) a rebuild is still needed, it can be achieved by running `make clean all`.
-
+  
 ### Building Linux 4.19 x64 Kernel
 
 The configuration file found in this repo is used for building a Linux kernel v4.19 x64.
@@ -46,3 +46,8 @@ Try running `make clean all`, solved my problem.
 
 Buildroot's takes the choosen version of the kernel, and downloads the matching `tar.gz` file from https://cdn.kernel.org/pub/linux/kernel/v4.x/.
 If the inserted version doesn't exist, or the above link doesn't contain the desired tar file - it'll fail.
+
+#### Build succeeds, but when running the image with QEMU it loops on "Decompressing Linux / Booting the kernel"
+
+Encountered it when tried to build Linux 4.4.x Kernel, doesn't really know why.
+I've changed the kernel's version to 4.19.x and it worked.
