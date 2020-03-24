@@ -30,7 +30,7 @@ However, to save a pitfall - always read the documentation found in https://buil
 
 If (after reading the manual) a rebuild is still needed, it can be achieved by running `make clean all`.
 
-### Building 4.19 x64 Kernel
+### Building Linux 4.19 x64 Kernel
 
 The configuration file found in this repo is used for building a Linux kernel v4.19 x64.
 You can use it, but it is recommended to go over it and validate that the configuration file suits your needs.
