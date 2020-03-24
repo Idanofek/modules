@@ -4,6 +4,8 @@ When talking about Linux, Buildroot provides two main features:
   * Building a custom kernel.
   * Creating a file-system file, contains all the needed dependencies and tools.
   
+</br>
+  
 ### Running Buildroot
 
 1. Download buildroot source files from https://buildroot.org/download.html.
@@ -22,6 +24,8 @@ When talking about Linux, Buildroot provides two main features:
 4. Once you finish configuring Buildroot's, run `make`.
 5. Both the Linux image and the file-system file will be under `<BUILDROOT_DIR>/output/images`.
 
+</br>
+  
 ### Rebuilding 
 
 Buildroot is pretty smart when it comes to rebuilding the entire tree.
@@ -29,12 +33,16 @@ Usually, rebuild is not needed when adding new packages / changing configuration
 However, to save a pitfall - always read the documentation found in https://buildroot.org/downloads/manual/manual.html for further information.
 
 If (after reading the manual) a rebuild is still needed, it can be achieved by running `make clean all`.
-
+  
+</br>
+  
 ### Building Linux 4.19 x64 Kernel
 
 The configuration file found in this repo is used for building a Linux kernel v4.19 x64.
 You can use it, but it is recommended to go over it and validate that the configuration file suits your needs.
-
+  
+</br>
+  
 ### Common Pitfalls
 
 #### GCC's fails with error "canno't compute suffix for files"
@@ -46,3 +54,8 @@ Try running `make clean all`, solved my problem.
 
 Buildroot's takes the choosen version of the kernel, and downloads the matching `tar.gz` file from https://cdn.kernel.org/pub/linux/kernel/v4.x/.
 If the inserted version doesn't exist, or the above link doesn't contain the desired tar file - it'll fail.
+
+#### Build succeeds, but when running the image with QEMU it loops on "Decompressing Linux / Booting the kernel"
+
+Encountered it when tried to build Linux 4.4.x Kernel, doesn't really know why.
+I've changed the kernel's version to 4.19.x and it worked.
