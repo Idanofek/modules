@@ -2,7 +2,7 @@
 
 ## Prolog
 
-This readme file is used asa summary for my tries to debug the kernel, each way with its issues.
+This readme file is used as a summary for my tries to debug the kernel, each way with its issues.
 Basically, I've tried two ways of debugging the Linux's kernel:
 1. By installing a VM (VMware) from scratch using an ubuntu distribution.
 2. By using Buildroot and QEMU, compiling my own kernel (and fs) and debugging using QEMU.
@@ -38,7 +38,7 @@ Build a kernel using Buildroot (guide can be found in the `kernel-debugging` dir
 
 ### Running QEMU
 
-The interesting Buildroot's output is the two following file:
+The interesting Buildroot's output is the two following files:
 1. __`bzImage`__ contains the compiled kernel's image.
 2. __`rootfs.ext2`__ contains the created file-system (with all its dependencies).
 
@@ -49,7 +49,7 @@ qemu-system-x86_64 -kernel <path_to_bzImage> -hda <path_to_rootfs.ext2> -nograph
 
 __Where__:
 * `kernel` flag specifies the location of the compiled kernel (bzImage file).
-* `hda` points to a the fs file.
+* `hda` points to the fs file.
 * `nographic` and `console=ttyS0` used to output the stdout to the terminal.
 * `root` is passed to the kernel and indicates to QEMU where to mound the disk.
 * `nokaslr` disables the Kernel's ASLR.
