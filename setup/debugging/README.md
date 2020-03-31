@@ -2,7 +2,7 @@
 
 ## Prolog
 
-This readme file is used asa summary for my tries to debug the kernel, each way with its issues.
+This readme file is used as a summary for my tries to debug the kernel, each way with its issues.
 Basically, I've tried two ways of debugging the Linux's kernel:
 1. By installing a VM (VMware) from scratch using an ubuntu distribution.
 2. By using Buildroot and QEMU, compiling my own kernel (and fs) and debugging using QEMU.
@@ -38,18 +38,18 @@ Build a kernel using Buildroot (guide can be found in the `kernel-debugging` dir
 
 ### Running QEMU
 
-The interesting Buildroot's output is the two following file:
+The interesting Buildroot's output is the two following files:
 1. __`bzImage`__ contains the compiled kernel's image.
 2. __`rootfs.ext2`__ contains the created file-system (with all its dependencies).
 
 Once you have the above file, run QEMU:
 ```
-qemu-system-x86_64 -kernel <path_to_bzImage> -hda <path_to_rootfs.ext2> -nographic --append "console=ttyS0 root=/dev/sda1 nokaslr" -m 512 -s -S
+qemu-system-x86_64 -kernel <path_to_bzImage> -hda <path_to_rootfs.ext2> -nographic --append "console=ttyS0 root=/dev/sda nokaslr" -m 512 -s -S
 ```
 
 __Where__:
 * `kernel` flag specifies the location of the compiled kernel (bzImage file).
-* `hda` points to a the fs file.
+* `hda` points to the fs file.
 * `nographic` and `console=ttyS0` used to output the stdout to the terminal.
 * `root` is passed to the kernel and indicates to QEMU where to mound the disk.
 * `nokaslr` disables the Kernel's ASLR.
@@ -64,7 +64,10 @@ Once QEMU is running, we need to run gdb:
 gdb -ex "add-auto-load-safe-path $(pwd)" -ex "file vmlinux" -ex 'set arch i386:x86-64:intel' -ex 'target remote localhost:1234' -ex 'break start_kernel' -ex 'continue' -ex 'disconnect' -ex 'set arch i386:x86-64' -ex 'target remote localhost:1234'
 ```
 
-___Note:___ the reason why we reconnect GDB right after the first breakpoint is reached, is due to QEMU's bug ("Reply 'g' packet is too long").
+__Where__:
+* __`vmlinux`__ is the Kernel's debug symbols file.
+
+__Note__: the reason why we reconnect GDB right after the first breakpoint is reached, is due to QEMU's bug (`"Reply 'g' packet is too long"`).
 
 ### What I didn't do?
 1. Managed to connect to QEMU with ssh from the host (should be easy, although didn't work).
