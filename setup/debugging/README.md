@@ -44,7 +44,7 @@ The interesting Buildroot's output is the two following files:
 
 Once you have the above file, run QEMU:
 ```
-qemu-system-x86_64 -kernel <path_to_bzImage> -hda <path_to_rootfs.ext2> -nographic --append "console=ttyS0 root=/dev/sda1 nokaslr" -m 512 -s -S
+qemu-system-x86_64 -kernel <path_to_bzImage> -hda <path_to_rootfs.ext2> -nographic --append "console=ttyS0 root=/dev/sda nokaslr" -m 512 -s -S
 ```
 
 __Where__:
